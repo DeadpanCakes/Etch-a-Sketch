@@ -37,3 +37,6 @@ function reset () {
     fraction = ""
     init(prompt("Into how many squares would you like to split the grid?", 16))
 }
+
+let resetButton = document.getElementById("resetButton")
+resetButton.addEventListener("click", () => {reset()})

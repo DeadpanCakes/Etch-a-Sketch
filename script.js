@@ -11,7 +11,7 @@ function init (dim) {
     let cell = board.querySelectorAll("DIV");
     for (i=0;i<area;i++){
         cell[i].className = "cell";
-        cell[i].id = if
+        cell[i].id = i
     }
     board.style.display = "grid";
     board.style.gridTemplateColumns = divideSides(dim)
@@ -37,6 +37,10 @@ function reset () {
     board.style.gridTemplateColumns = ""
     fraction = ""
     init(prompt("Into how many squares would you like to split the grid?", 16))
+}
+
+function color (cellNum) {
+    document.getElementById(cellNum).style.background = "pink"
 }
 
 let resetButton = document.getElementById("resetButton")

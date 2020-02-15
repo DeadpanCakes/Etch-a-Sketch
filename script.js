@@ -25,3 +25,15 @@ function divideSides (dim) {
     fraction += "1fr "
     return fraction
 }
+
+function reset () {
+    let etch = document.getElementById("etch");
+    let dim = etch.childElementCount;
+    let children = document.getElementById("etch").childNodes
+    for (i=0;i<dim;i++){
+        etch.removeChild(etch.childNodes[0])
+    }
+    etch.style.gridTemplateColumns = ""
+    fraction = ""
+    init(prompt("Into how many squares would you like to split the grid?", 16))
+}

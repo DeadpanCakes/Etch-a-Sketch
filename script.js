@@ -13,6 +13,8 @@ function init (dim) {
         cell[i].className = "cell";
         cell[i].id = i
     }
+    makeColorable(area)
+    
     board.style.display = "grid";
     board.style.gridTemplateColumns = divideSides(dim)
     board.style.width = "960px"
@@ -39,9 +41,20 @@ function reset () {
     init(prompt("Into how many squares would you like to split the grid?", 16))
 }
 
-function color (cellNum) {
-    document.getElementById(cellNum).style.background = "pink"
+function color(cellNum) {
+    document.getElementById(cellNum).style.backgroundColor = "pink"
+} 
+
+
+function makeColorable(area){
+    for (i=0;i<area;i++){
+        let cell = document.getElementById(i)
+        cell.addEventListener("mouseover", () => {color(event.target.id)})
+    }
 }
+
 
 let resetButton = document.getElementById("resetButton")
 resetButton.addEventListener("click", () => {reset()})
+
+//init(16)
